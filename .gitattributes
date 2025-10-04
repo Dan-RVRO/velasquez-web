@@ -1,0 +1,25 @@
+/mvnw text eol=lf
+*.cmd text eol=crlf
+# Archivo de configuración de Git: permite definir cómo Git debe tratar ciertos archivos en tu repositorio
+
+# Normalizar finales de línea
+* text=auto
+
+# Archivos de código fuente siempre como texto
+*.java text
+*.xml text
+*.yml text
+*.md text
+
+# Archivos binarios
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+
+# Usar Git LFS para imágenes grandes
+*.psd filter=lfs diff=lfs merge=lfs -text
+
+# Configurar diffs especiales
+*.md diff=markdown
