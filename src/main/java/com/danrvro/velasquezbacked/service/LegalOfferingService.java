@@ -2,11 +2,13 @@ package com.danrvro.velasquezbacked.service;
 
 import com.danrvro.velasquezbacked.entity.LegalOfferingEntity;
 import com.danrvro.velasquezbacked.entity.LegalOfferingEntity.Status;
+import com.danrvro.velasquezbacked.entity.NewsEntity;
 import com.danrvro.velasquezbacked.repository.LegalOfferingsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -23,6 +25,16 @@ import java.util.Optional;
 public class LegalOfferingService {
 
     private final LegalOfferingsRepository repository;
+
+    /**
+     * Recupera todas las ofertas legales.
+     * No realiza transformaciones ni filtrados.
+     */
+    @Transactional(readOnly = true)
+    public List<LegalOfferingEntity> findAll() {
+        return repository.findAll();
+    }
+
 
     /**
      * Recupera una oferta por id. Devuelve Optional en lugar de lanzar excepción.
@@ -92,4 +104,5 @@ public class LegalOfferingService {
         repository.deleteById(id);
         return true;
     }
+
 }

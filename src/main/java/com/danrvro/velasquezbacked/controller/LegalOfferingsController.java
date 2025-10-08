@@ -5,6 +5,7 @@ import com.danrvro.velasquezbacked.service.LegalOfferingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -24,6 +25,12 @@ import java.util.Optional;
 public class LegalOfferingsController {
 
     private final LegalOfferingService service;
+
+    // todas las ofertas
+    @GetMapping
+    public List<LegalOfferingEntity> getAll() {
+        return service.findAll();
+    }
 
     /**
      * GET /api/legal-offerings/{id}
