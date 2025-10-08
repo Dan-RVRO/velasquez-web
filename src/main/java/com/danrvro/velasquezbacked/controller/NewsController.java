@@ -35,27 +35,6 @@ public class NewsController {
     }
 
     /**
-     * GET /api/news?status=...
-     * Listar noticias por estado.
-     * status es requerido como query param; si quieres hacerlo opcional, cambia required = false y gestiona null.
-     */
-    @GetMapping("/status")
-    public ResponseEntity<List<NewsEntity>> listByStatus(@RequestParam("status") ContentStatus status) {
-        List<NewsEntity> list = newsService.listByStatus(status);
-        return ResponseEntity.ok(list);
-    }
-
-    /**
-     * GET /api/news/search?text=...
-     * Búsqueda por texto en título o resumen.
-     */
-    @GetMapping("/search")
-    public ResponseEntity<List<NewsEntity>> searchByText(@RequestParam("text") String text) {
-        List<NewsEntity> results = newsService.searchByText(text);
-        return ResponseEntity.ok(results);
-    }
-
-    /**
      * GET /api/news/{id}
      * Obtener una noticia por id.
      * Devuelve 200 con la entidad o deja propagar excepción si no existe (mapea con ControllerAdvice).

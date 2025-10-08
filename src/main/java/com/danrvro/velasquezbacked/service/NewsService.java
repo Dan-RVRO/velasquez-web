@@ -24,23 +24,6 @@ public class NewsService {
         this.newsRepository = newsRepository;
     }
 
-    /**
-     * Listar todas las noticias por estado, ordenadas por fecha de publicación descendente.
-     * Se marca como readOnly porque no modifica la base de datos.
-     */
-    @Transactional(readOnly = true)
-    public List<NewsEntity> listByStatus(ContentStatus status) {
-        return newsRepository.findByStatusOrderByPublicationDateDesc(status);
-    }
-
-    /**
-     * Buscar noticias que contengan cierto texto en el título o resumen.
-     * Ideal para filtros simples en la interfaz.
-     */
-    @Transactional(readOnly = true)
-    public List<NewsEntity> searchByText(String text) {
-        return newsRepository.findByTitleContainingIgnoreCaseOrSummaryContainingIgnoreCase(text, text);
-    }
 
     /**
      * Obtener una noticia por su ID.
