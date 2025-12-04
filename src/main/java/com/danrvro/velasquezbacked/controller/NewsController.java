@@ -45,6 +45,7 @@ public class NewsController {
         return ResponseEntity.ok(newsEntity);
     }
 
+
     /**
      * POST /api/newsEntity
      * Crear una nueva noticia.
